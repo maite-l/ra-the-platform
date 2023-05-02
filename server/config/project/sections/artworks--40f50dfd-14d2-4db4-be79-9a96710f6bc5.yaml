@@ -1,0 +1,12 @@
+defaultPlacement: end
+enableVersioning: true
+handle: artworks
+name: artworks
+propagationMethod: all
+siteSettings:
+  d7462a5a-030b-47ef-9b31-920635c00d5c: # ra-the-platform
+    enabledByDefault: true
+    hasUrls: true
+    template: artworks/_entry
+    uriFormat: 'artworks/{slug}'
+type: channel
