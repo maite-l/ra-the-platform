@@ -10,7 +10,7 @@ on:
   
 env:
   APP_PATH: ~/craft/ra-the-platform
-  WEB_PATH: ~/subsites/development.maite-lejeune.be
+  WEB_PATH: ~/subsites/dev.maite-lejeune.be
   SERVER_PATH: "server"
   CLIENT_PATH: "client"
 jobs:
