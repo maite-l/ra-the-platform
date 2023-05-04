@@ -110,9 +110,9 @@ h2 {
     gap: 1rem;
 }
 
-.edit .controls form .form-buttons button {
+button {
     font-family: monospace;
-    font-size: 1rem; 
+    font-size: 1rem;
     line-height: 1.5;
     border: none;
     border-radius: 2rem;
@@ -120,9 +120,13 @@ h2 {
     cursor: pointer;
     transition: all 0.2s;
     background-color: #38726C;
-    width: 12rem;
     color: #FEFDEC;
 }
+.edit .controls form .form-buttons button {
+    width: 12rem;
+}
+
+
 
 .edit .controls form .form-buttons button:hover {
     background-color: #333;
@@ -186,6 +190,31 @@ input[type="text"] {
 
 span {
     margin-inline-end: 1rem;
+}
+
+.detail {
+    width: 100%;
+    display: flex;
+    gap: 2.5rem;
+}
+
+.detail span {
+    margin-inline: 1rem;
+}
+
+.detail svg {
+    max-width: 850px;
+    height: 100%;
+    border-radius: 2rem;
+}
+
+.detail__info--creator {
+    font-weight: bolder;
+    margin-block-end: 0.5rem;
+}
+.like-amount {
+    font-weight: bolder;
+    margin-block-end: 0.5rem;
 }
 
 

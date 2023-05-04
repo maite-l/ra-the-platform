@@ -11,6 +11,7 @@ import ErrorPage from '../error-page';
 import Edit from './routes/edit';
 import Explore from './routes/explore';
 import MyArtworks from './routes/my-artworks';
+import Detail from './routes/detail';
 import Liked from './routes/liked';
 
 const router = createBrowserRouter([
@@ -25,6 +26,13 @@ const router = createBrowserRouter([
           {
             path: "new",
             element: <Edit />,
+            // loader: ,
+            // action: ,
+          },
+          {
+            path: "artwork/ex",
+            // path: "artwork/:id",
+            element: <Detail />,
             // loader: ,
             // action: ,
           },
