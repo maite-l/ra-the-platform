@@ -7,11 +7,14 @@ export default function Detail() {
             <div className="detail__info">
                 {/* if artwork is not by user */}
                 {/* <div className="detail__info--creator">made by account123</div>
-                <button className="like-button">like</button>
-                <span className="like-amount">37 likes</span> */}
+                <div className="date-created">created on 12/04/2023</div>
+                <div>..........................</div>
+                <button className="like-button">like</button><span className="like-amount">37 likes</span> */}
 
                 {/* if artwork is by user */}
                 <div className="like-amount">37 likes</div>
+                <div className="date-created">created on 12/04/2023</div>
+                <div>..........................</div>
                 <button className="delete-button">delete</button>
             </div>
 

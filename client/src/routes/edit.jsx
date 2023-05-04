@@ -21,7 +21,11 @@ export default function Edit() {
             for (let j = 0; j < rectanglesPerPattern; j++) {
                 const patternName = checkedPatterns[i].name.replace(/[\s]/g, '-').replace(/[\s()]/g, '');
                 const key = `${patternName}-${j}`;
-                rectangles.push(<Rectangle key={key} pattern={patternName} />);
+                const size = getRandomInt(70, 200);
+                const x = getRandomInt(0, 1000 - size);
+                const y = getRandomInt(0, 700 - size);
+                const fill = patternName ? `url(#${patternName})` : 'black';
+                rectangles.push(<rect key={key} x={x} y={y} width={size} height={size} fill={fill} />);
             }
         }
         return rectangles;
@@ -118,6 +122,10 @@ export default function Edit() {
         </div>
 
     );
+}
+
+const getRandomInt = (min, max) => {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
 

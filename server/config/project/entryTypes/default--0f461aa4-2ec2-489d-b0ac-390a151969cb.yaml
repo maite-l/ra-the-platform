@@ -30,6 +30,30 @@ fieldLayouts:
             userCondition: null
             warning: null
             width: 100
+          -
+            elementCondition: null
+            fieldUid: 46dc0937-252d-42b1-af90-0b9484275b6c # svg variables
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: b1a8f0d4-f248-4e98-add9-34c64a0cfa8a
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            elementCondition: null
+            fieldUid: 12d508d2-3246-4cc0-a641-d85f16cec7b5 # likes
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: b45cf50c-9399-4d3e-878e-75ebd44a7a90
+            userCondition: null
+            warning: null
+            width: 100
         name: Content
         uid: 3ea86307-14a3-4d09-b33d-e95c764738ce
         userCondition: null
