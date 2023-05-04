@@ -12,19 +12,64 @@ html {
 #root {
     display: flex;
     flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    gap: 2rem;
-    min-height: 100vh;
-    padding: 2rem;
+}
+
+.sidebar {
+    background-color: #333;
+    color: #FEFDEC;
+    display: flex;
+    flex-direction: column;
+    max-width: 14rem;
+    height: 100vh;
+    position: sticky;
+    top: 0;
+}
+nav ul{
+    display: flex;
+    flex-direction: column;
+}
+nav ul li {
+    padding: 1rem;
+}
+nav ul li:hover {
+    background-color: #38726C;
+}
+
+a {
+    color: #FEFDEC;
+    text-decoration: none;
 }
 
 h1 {
     margin: 0;
-    margin-bottom: 1rem;
-    font-size: 2rem;
-    text-align: center;
+    font-size: 1.8rem;
+    line-height: 1;
     font-weight: bolder;
+}
+
+h2 {
+    font-size: 2.5rem;
+    font-weight: bolder;
+    text-transform: uppercase;
+    margin-block-end: 1rem;
+    text-align: center;
+}
+
+.title {
+    padding: 1rem;
+}
+.title p, .title h1 {
+    text-align: center;
+}
+
+.outlet {
+    padding: 3rem;
+    width: 100%;
+}
+
+.edit {
+    max-width: 1000px;
+    margin: auto;
 }
 
 svg {
@@ -35,17 +80,53 @@ svg {
 
 form {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: center;
+    align-items: center;
     width: 100%;
-    gap: 1rem;
+    gap: 5rem;
     padding: 1rem;
     border-radius: 2rem;
     border: 3px solid #333;
 }
 
+.form-inputs {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    width: 100%;
+}
+
+.form-buttons {
+    width: 12rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+button {
+    font-family: monospace;
+    font-size: 1rem; 
+    line-height: 1.5;
+    border: none;
+    border-radius: 2rem;
+    padding: 0.5rem;
+    cursor: pointer;
+    transition: all 0.2s;
+    background-color: #38726C;
+    width: 12rem;
+    color: #FEFDEC;
+}
+
+button:hover {
+    background-color: #333;
+    color: #FEFDEC;
+}
+
 .controls {
-    max-width: 20rem;
+    width: 100%;
+    max-width: 1000px;
+    margin-block-end: 1rem;
 }
 
 body, input, select {
@@ -87,7 +168,7 @@ select:focus {
     color: #FEFDEC;
 }
 .checkbox-inputs input[type="checkbox"]+span:hover {
-    background-color: var(--dynamic-color);
+    background-color: #38726C;
 }
 
 input[type="color"]::-webkit-color-swatch-wrapper {
@@ -104,16 +185,4 @@ input[type="text"] {
 
 span {
     margin-inline-end: 1rem;
-}
-
-
-@media (max-width: 1439px) {
-    #root {
-        flex-direction: column;
-        max-width: 100%;
-    }
-    .controls {
-        width: 100%;
-        max-width: 40rem;
-    }
 }
