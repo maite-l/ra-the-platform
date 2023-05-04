@@ -11,13 +11,16 @@ export default function Root() {
                 <nav>
                     <ul>
                         <li>
-                            <a href="">EXPLORE</a>
+                            <a href="/">EXPLORE</a>
                         </li>
                         <li>
-                            <a href="">MY ARTWORKS</a>
+                            <a href="/new">NEW ARTWORK</a>
                         </li>
                         <li>
-                            <a href="">LIKED</a>
+                            <a href="/my-artworks">MY ARTWORKS</a>
+                        </li>
+                        <li>
+                            <a href="/liked">LIKED</a>
                         </li>
                     </ul>
                 </nav>

@@ -7,7 +7,11 @@ import Root, {
   // loader as rootLoader,
   // action as rootAction,
 } from "./routes/root";
+import ErrorPage from '../error-page';
 import Edit from './routes/edit';
+import Explore from './routes/explore';
+import MyArtworks from './routes/my-artworks';
+import Liked from './routes/liked';
 
 const router = createBrowserRouter([
   {
@@ -15,18 +19,31 @@ const router = createBrowserRouter([
     element: <Root />,
     children: [
       {
-        // errorElement: <ErrorPage />,
+        errorElement: <ErrorPage />,
         children: [
-          { index: true, element: <Edit /> },
-          // {
-          //   path: "contacts/:contactId",
-          //   element: <Contact />,
-          //   loader: contactLoader,
-          //   action: contactAction,
-          // },
+          { index: true, element: <Explore /> },
+          {
+            path: "new",
+            element: <Edit />,
+            // loader: ,
+            // action: ,
+          },
+          {
+            path: "my-artworks",
+            element: <MyArtworks />,
+            // loader: ,
+            // action: ,
+          },
+          {
+            path: "liked",
+            element: <Liked />,
+            // loader: ,
+            // action: ,
+          },
         ],
       },
     ],
+    errorElement: <ErrorPage />,
   },
 ]);
 
