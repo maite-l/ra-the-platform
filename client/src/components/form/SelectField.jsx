@@ -1,6 +1,4 @@
 export default function SelectField({ id, label, options, value, onChange }) {
-
-
     return (
             <label>
                 <span>{label}</span>

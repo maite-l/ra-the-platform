@@ -8,9 +8,25 @@ import SelectField from './components/form/SelectField';
 import CheckboxField from './components/form/CheckboxField';
 import TextInputField from './components/form/TextInputField';
 import ColorField from './components/form/ColorField';
+import Rectangle from './components/svg/Rectangle';
 
 
 function App() {
+
+  const getRandomRectangles = (patterns) => {
+    const checkedPatterns = patterns.filter((pattern) => pattern.checked);
+    const maxNofRectangles = 25;
+    const rectanglesPerPattern = Math.floor(maxNofRectangles / checkedPatterns.length);
+    const rectangles = [];
+    for (let i = 0; i < checkedPatterns.length; i++) {
+      for (let j = 0; j < rectanglesPerPattern; j++) {
+        const patternName = checkedPatterns[i].name.replace(/[\s]/g, '-').replace(/[\s()]/g, '');
+        const key = `${patternName}-${j}`;
+        rectangles.push(<Rectangle key={key} pattern={patternName} />);
+      }
+    }
+    return rectangles;
+  }
 
   const [quote, setQuote] = useState("hello devine");
   const [backgroundPattern, setBackgroundPattern] = useState('dots');
@@ -30,7 +46,7 @@ function App() {
 
   ]);
   const [color, setColor] = useState(['#38726C', '#FEFDEC']);
-
+  const [rectangles, setRectangles] = useState(getRandomRectangles(patterns));
 
   const handleOptionChange = (optionId) => {
     optionId = parseInt(optionId);
@@ -42,6 +58,7 @@ function App() {
       }
     });
     setPatterns(updatedOptions);
+    setRectangles(getRandomRectangles(updatedOptions));
   };
 
 
@@ -56,7 +73,7 @@ function App() {
       <svg viewBox='0 0 1000 700' width="1000" height="700">
         <Background color={color[0]} />
         <SvgDefinitions color={color[1]} />
-        <PatternedRectangles backgroundPattern={backgroundPattern} additionalPatterns={patterns} />
+        <PatternedRectangles backgroundPattern={backgroundPattern} rectangles={rectangles} />
         <Text quote={quote} color={color[1]} />
       </svg>
 
