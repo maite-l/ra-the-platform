@@ -9,7 +9,7 @@ import Root, {
 } from "./routes/root";
 import ErrorPage from '../error-page';
 import Edit from './routes/edit';
-import Explore from './routes/explore';
+import Explore, {loader as exploreLoader} from './routes/explore';
 import MyArtworks from './routes/my-artworks';
 import Detail from './routes/detail';
 import Liked from './routes/liked';
@@ -22,7 +22,10 @@ const router = createBrowserRouter([
       {
         errorElement: <ErrorPage />,
         children: [
-          { index: true, element: <Explore /> },
+          { index: true, 
+            element: <Explore />,
+            loader: exploreLoader
+          },
           {
             path: "new",
             element: <Edit />,

@@ -60,6 +60,17 @@ export default function Edit() {
         setRectangles(getRandomRectangles(updatedOptions));
     };
 
+    // const data = {
+    //     quote: quote,
+    //     backgroundPattern: backgroundPattern,
+    //     patterns: patterns,
+    //     color: color,
+    //     rectangles: rectangles,
+    // };
+
+    // console.log(data);
+
+
     return (
         <div className="edit">
             <h2>Create a new artwork</h2>
@@ -117,7 +128,6 @@ export default function Edit() {
                 quote={quote}
             ></Svg>
         </div>
-
     );
 }
 
