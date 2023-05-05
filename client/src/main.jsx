@@ -3,12 +3,9 @@ import ReactDOM from 'react-dom/client'
 import './css/reset.css'
 import './css/style.css'
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import Root, {
-  // loader as rootLoader,
-  // action as rootAction,
-} from "./routes/root";
+import Root from "./routes/root";
 import ErrorPage from '../error-page';
-import Edit from './routes/edit';
+import New, {action as newAction} from './routes/new';
 import Explore, { loader as exploreLoader } from './routes/explore';
 import MyArtworks from './routes/my-artworks';
 import Detail from './routes/detail';
@@ -30,9 +27,9 @@ const router = createBrowserRouter([
           },
           {
             path: "new",
-            element: <Edit />,
+            element: <New />,
             // loader: ,
-            // action: ,
+            action: newAction,
           },
           {
             path: "artwork/ex",

@@ -1,4 +1,7 @@
 import { useState } from 'react';
+import { Form, redirect, useNavigate } from 'react-router-dom'
+
+import { newArtwork } from '../artworks';
 
 import SelectField from '../components/form/SelectField';
 import CheckboxField from '../components/form/CheckboxField';
@@ -7,8 +10,18 @@ import ColorField from '../components/form/ColorField';
 import Svg from '../components/svg/Svg';
 import DownloadButton from '../components/DownloadButton';
 
+let jsonString;
 
-export default function Edit() {
+export async function action({ params }) {
+    console.log(jsonString);
+    await newArtwork(jsonString, params.id);
+    return redirect('/liked');
+}
+
+
+export default function New() {
+    const navigate = useNavigate();
+
     const getRandomRectangles = (patterns) => {
         const checkedPatterns = patterns.filter((pattern) => pattern.checked);
         const maxNofRectangles = 25;
@@ -22,7 +35,6 @@ export default function Edit() {
                 const x = getRandomInt(0, 1000 - size);
                 const y = getRandomInt(0, 700 - size);
                 const fill = patternName ? `url(#${patternName})` : 'black';
-                // rectangles.push(<rect key={key} x={x} y={y} width={size} height={size} fill={fill} />);
                 rectangles.push({
                     key,
                     x,
@@ -74,16 +86,15 @@ export default function Edit() {
         color: color,
         rectangles: rectangles
     };
+    jsonString = JSON.stringify(data);
 
-    const jsonString = JSON.stringify(data);
-    console.log(jsonString);
 
 
     return (
         <div className="edit">
             <h2>Create a new artwork</h2>
             <div className="controls">
-                <form>
+                <Form method="post">
                     <div className='form-inputs'>
                         <SelectField
                             id="background-pattern"
@@ -124,12 +135,12 @@ export default function Edit() {
                             onChange={(event) => setQuote(event.target.value)} />
                     </div>
                     <div className='form-buttons'>
-                        <button>save</button>
+                        <button type='submit'>save</button>
                         <DownloadButton></DownloadButton>
                     </div>
-                </form>
+                </Form >
             </div>
-            <Svg 
+            <Svg
                 color={color}
                 backgroundPattern={backgroundPattern}
                 rectangles={rectangles}
