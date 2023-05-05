@@ -46,7 +46,7 @@ export default function Detail() {
                             }
                         }}
                     >
-                        <button type="submit">Delete</button>
+                        <button type="submit">delete</button>
                     </Form>
                     <DownloadButton></DownloadButton>
                 </div>
