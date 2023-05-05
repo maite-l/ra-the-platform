@@ -1,6 +1,27 @@
+import {
+    useLoaderData,
+} from "react-router-dom";
+
+import { getArtworks } from '../artworks';
+
+export async function loader({ }) {
+    const artworks = await getArtworks();
+    return { artworks };
+}
+
 export default function Explore() {
+    const { artworks } = useLoaderData();
+
     return (
-        <div>explore
+        <div>
+            {artworks.map((artwork) => {
+                return (
+                    <div key={artwork.id}>
+                        <iframe src={`/img/${artwork.id}`} width={1000} height={700} />
+                    </div>
+                );
+            })}
         </div>
     );
 }
+

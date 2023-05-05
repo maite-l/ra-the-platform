@@ -122,6 +122,21 @@ button {
     background-color: #38726C;
     color: #FEFDEC;
 }
+
+.download-button {
+    font-family: monospace;
+    font-size: 1rem;
+    line-height: 1.5;
+    border-radius: 2rem;
+    padding: 0.5rem;
+    cursor: pointer;
+    transition: all 0.2s;
+    background-color: #38726C;
+    color: #FEFDEC;
+    text-decoration: none;
+    text-align: center;
+}
+
 .edit .controls form .form-buttons button {
     width: 12rem;
 }
@@ -211,7 +226,17 @@ span {
 .detail__info--creator {
     font-weight: bolder;
 }
-.delete-button, .like-button {
+.detail__info .likes {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 0.5rem;
+    margin-block-end: 1rem;
+    margin-block-start: 0.5rem;
+}
+.detail__info .buttons {
+    display: flex;
+    gap: 1rem;
     margin-block-start: 0.5rem;
 }
 

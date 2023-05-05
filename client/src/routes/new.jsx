@@ -1,17 +1,25 @@
 import { useState } from 'react';
+import { Form, redirect } from 'react-router-dom'
 
-import SvgDefinitions from '../components/svg/SvgDefinitions';
-import PatternedRectangles from '../components/svg/PatternedRectangles';
-import Background from '../components/svg/Background';
-import Text from '../components/svg/Text';
+import { newArtwork } from '../artworks';
+
 import SelectField from '../components/form/SelectField';
 import CheckboxField from '../components/form/CheckboxField';
 import TextInputField from '../components/form/TextInputField';
 import ColorField from '../components/form/ColorField';
-import Rectangle from '../components/svg/Rectangle';
+import Svg from '../components/svg/Svg';
+import DownloadButton from '../components/DownloadButton';
+
+let jsonString;
+
+export async function action() {
+    const artwork = await newArtwork(jsonString);
+    const id = artwork.id;
+    return redirect(`/artwork/${id}`);
+}
 
 
-export default function Edit() {
+export default function New() {
     const getRandomRectangles = (patterns) => {
         const checkedPatterns = patterns.filter((pattern) => pattern.checked);
         const maxNofRectangles = 25;
@@ -25,7 +33,13 @@ export default function Edit() {
                 const x = getRandomInt(0, 1000 - size);
                 const y = getRandomInt(0, 700 - size);
                 const fill = patternName ? `url(#${patternName})` : 'black';
-                rectangles.push(<rect key={key} x={x} y={y} width={size} height={size} fill={fill} />);
+                rectangles.push({
+                    key,
+                    x,
+                    y,
+                    size,
+                    fill,
+                });
             }
         }
         return rectangles;
@@ -63,11 +77,22 @@ export default function Edit() {
         setRectangles(getRandomRectangles(updatedOptions));
     };
 
+    const data = {
+        quote: quote,
+        backgroundPattern: backgroundPattern,
+        patterns: patterns,
+        color: color,
+        rectangles: rectangles
+    };
+    jsonString = JSON.stringify(data);
+
+
+
     return (
         <div className="edit">
             <h2>Create a new artwork</h2>
             <div className="controls">
-                <form>
+                <Form method="post">
                     <div className='form-inputs'>
                         <SelectField
                             id="background-pattern"
@@ -108,19 +133,18 @@ export default function Edit() {
                             onChange={(event) => setQuote(event.target.value)} />
                     </div>
                     <div className='form-buttons'>
-                        <button>Save</button>
-                        <button>Download</button>
+                        <button type='submit'>save</button>
+                        <DownloadButton></DownloadButton>
                     </div>
-                </form>
+                </Form >
             </div>
-            <svg viewBox='0 0 1000 700' width="1000" height="700">
-                <Background color={color[0]} />
-                <SvgDefinitions color={color[1]} />
-                <PatternedRectangles backgroundPattern={backgroundPattern} rectangles={rectangles} />
-                <Text quote={quote} color={color[1]} />
-            </svg>
+            <Svg
+                color={color}
+                backgroundPattern={backgroundPattern}
+                rectangles={rectangles}
+                quote={quote}
+            ></Svg>
         </div>
-
     );
 }
 
