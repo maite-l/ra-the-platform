@@ -1,14 +1,10 @@
 import { useState } from 'react';
 
-import SvgDefinitions from '../components/svg/SvgDefinitions';
-import PatternedRectangles from '../components/svg/PatternedRectangles';
-import Background from '../components/svg/Background';
-import Text from '../components/svg/Text';
 import SelectField from '../components/form/SelectField';
 import CheckboxField from '../components/form/CheckboxField';
 import TextInputField from '../components/form/TextInputField';
 import ColorField from '../components/form/ColorField';
-import Rectangle from '../components/svg/Rectangle';
+import Svg from '../components/svg/Svg';
 
 
 export default function Edit() {
@@ -113,12 +109,12 @@ export default function Edit() {
                     </div>
                 </form>
             </div>
-            <svg viewBox='0 0 1000 700' width="1000" height="700">
-                <Background color={color[0]} />
-                <SvgDefinitions color={color[1]} />
-                <PatternedRectangles backgroundPattern={backgroundPattern} rectangles={rectangles} />
-                <Text quote={quote} color={color[1]} />
-            </svg>
+            <Svg 
+                color={color}
+                backgroundPattern={backgroundPattern}
+                rectangles={rectangles}
+                quote={quote}
+            ></Svg>
         </div>
 
     );
