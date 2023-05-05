@@ -6,6 +6,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Root from "./routes/root";
 import ErrorPage from '../error-page';
 import New, {action as newAction} from './routes/new';
+import { action as deleteAction } from './routes/delete';
 import Explore, { loader as exploreLoader } from './routes/explore';
 import MyArtworks from './routes/my-artworks';
 import Detail, { loader as detailLoader } from './routes/detail';
@@ -37,6 +38,11 @@ const router = createBrowserRouter([
             element: <Detail />,
             loader: detailLoader,
             // action: ,
+          },
+          {
+            path: "artwork/:id/delete",
+            action: deleteAction,
+            errorElement: <div>Oops! There was an error.</div>,
           },
           {
             path: "my-artworks",

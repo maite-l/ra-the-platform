@@ -1,5 +1,5 @@
 import {
-    useLoaderData,
+    useLoaderData, Form
 } from "react-router-dom";
 
 import { getArtwork } from '../artworks';
@@ -30,12 +30,24 @@ export default function Detail() {
                 </div>
                 <DownloadButton></DownloadButton> */}
 
+                {/* !!!!!!download button doesnt work yet!!!!!! */}
+
                 {/* if artwork is by user */}
                 <div className="like-amount">37 likes</div>
                 <div className="date-created">created on 12/04/2023</div>
                 <div>..........................</div>
                 <div className="buttons">
-                    <button className="delete-button">delete</button>
+                    <Form
+                        method="post"
+                        action="delete"
+                        onSubmit={(event) => {
+                            if (!confirm("Please confirm you want to delete this record.")) {
+                                event.preventDefault();
+                            }
+                        }}
+                    >
+                        <button type="submit">Delete</button>
+                    </Form>
                     <DownloadButton></DownloadButton>
                 </div>
 
