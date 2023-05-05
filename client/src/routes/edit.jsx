@@ -5,6 +5,7 @@ import CheckboxField from '../components/form/CheckboxField';
 import TextInputField from '../components/form/TextInputField';
 import ColorField from '../components/form/ColorField';
 import Svg from '../components/svg/Svg';
+import DownloadButton from '../components/DownloadButton';
 
 
 export default function Edit() {
@@ -104,8 +105,8 @@ export default function Edit() {
                             onChange={(event) => setQuote(event.target.value)} />
                     </div>
                     <div className='form-buttons'>
-                        <button>Save</button>
-                        <button>Download</button>
+                        <button>save</button>
+                        <DownloadButton></DownloadButton>
                     </div>
                 </form>
             </div>
