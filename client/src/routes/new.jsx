@@ -86,7 +86,7 @@ export default function New() {
     };
     jsonString = JSON.stringify(data);
 
-
+    const ypos = 0;
 
     return (
         <div className="edit">
@@ -139,6 +139,7 @@ export default function New() {
                 </Form >
             </div>
             <Svg
+                yPos={ypos}
                 color={color}
                 backgroundPattern={backgroundPattern}
                 rectangles={rectangles}

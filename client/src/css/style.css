@@ -249,3 +249,37 @@ span {
     width: 100%;
     padding-block-start: 3rem;
 }
+
+
+.artwork-overview {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 2rem;
+
+}
+
+.artwork-overview__artwork-wrapper {
+    width: 250px;
+    height: 175px;
+    overflow-y: auto;
+    overflow-x: auto;
+    resize: both;
+    position: relative;
+    z-index: 2;
+}
+
+.artwork-overview__artwork-link {
+    position: absolute;
+    top: 0;
+    left: 0; 
+    width: 100%;
+    height: 100%;
+}
+
+.artwork-overview__artwork {
+    width: 100%;
+    height: 100%;
+    border-radius: 1rem;
+}
+

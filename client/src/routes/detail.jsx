@@ -16,9 +16,10 @@ export async function loader({ params }) {
 export default function Detail() {
     const { artwork } = useLoaderData();
     const parsedSvgVariables = JSON.parse(artwork[0].svgVariables);
+    const ypos = 0;
     return (
         <div className="detail">
-            <Svg {...parsedSvgVariables} />
+            <Svg yPos={ypos} {...parsedSvgVariables} />
             <div className="detail__info">
                 {/* if artwork is not by user */}
                 {/* <div className="detail__info--creator">made by account123</div>
