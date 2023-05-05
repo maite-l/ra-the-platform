@@ -1,7 +1,6 @@
 import {
     useLoaderData,
 } from "react-router-dom";
-import Svg from '../components/svg/Svg';
 
 import { getArtworks } from '../artworks';
 

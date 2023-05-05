@@ -17,8 +17,22 @@ export async function getArtworks() {
     return artworks;
 }
 
+export async function getArtwork(id) {
+    const graphqlQuery = `
+    query GetArtworkQuery($id: [QueryArgument]) {
+        artworksEntries(id: $id) {
+        ... on artworks_default_Entry {
+            id
+            svgVariables
+        }
+        } 
+    }`;
+    const artwork = (await graphQLRequest(graphqlQuery, { id: id })).data.artworksEntries;
+    return artwork;
+}
+
+
 export async function newArtwork(jsonString, id) {
-    console.log("newArtwork");
     const graphqlQuery = `
     mutation NewArtwork($svgVariables: String, $id: ID) {
       save_artworks_default_Entry(
@@ -34,6 +48,5 @@ export async function newArtwork(jsonString, id) {
     const artwork = (await graphQLRequest(graphqlQuery, {
         id: id, svgVariables: jsonString,
     })).data.save_artworks_default_Entry;
-    console.log("graphqlQuery", graphqlQuery);
     return artwork;
 }

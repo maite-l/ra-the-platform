@@ -8,7 +8,7 @@ import ErrorPage from '../error-page';
 import New, {action as newAction} from './routes/new';
 import Explore, { loader as exploreLoader } from './routes/explore';
 import MyArtworks from './routes/my-artworks';
-import Detail from './routes/detail';
+import Detail, { loader as detailLoader } from './routes/detail';
 import Liked from './routes/liked';
 import Img, { loader as imgLoader } from './routes/img';
 
@@ -32,10 +32,10 @@ const router = createBrowserRouter([
             action: newAction,
           },
           {
-            path: "artwork/ex",
-            // path: "artwork/:id",
+            // path: "artwork/ex",
+            path: "artwork/:id",
             element: <Detail />,
-            // loader: ,
+            loader: detailLoader,
             // action: ,
           },
           {

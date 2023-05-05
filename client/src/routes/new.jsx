@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Form, redirect, useNavigate } from 'react-router-dom'
+import { Form, redirect } from 'react-router-dom'
 
 import { newArtwork } from '../artworks';
 
@@ -12,16 +12,14 @@ import DownloadButton from '../components/DownloadButton';
 
 let jsonString;
 
-export async function action({ params }) {
-    console.log(jsonString);
-    await newArtwork(jsonString, params.id);
-    return redirect('/liked');
+export async function action() {
+    const artwork = await newArtwork(jsonString);
+    const id = artwork.id;
+    return redirect(`/artwork/${id}`);
 }
 
 
 export default function New() {
-    const navigate = useNavigate();
-
     const getRandomRectangles = (patterns) => {
         const checkedPatterns = patterns.filter((pattern) => pattern.checked);
         const maxNofRectangles = 25;
