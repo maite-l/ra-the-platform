@@ -3,7 +3,6 @@ export default function DownloadButton() {
     //get svg element.
     window.onload = () => {
         const svg = document.getElementsByTagName("svg")[0];
-        console.log(svg);
 
         // get svg source.
         var serializer = new XMLSerializer();

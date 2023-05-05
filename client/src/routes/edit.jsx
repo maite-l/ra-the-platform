@@ -22,7 +22,14 @@ export default function Edit() {
                 const x = getRandomInt(0, 1000 - size);
                 const y = getRandomInt(0, 700 - size);
                 const fill = patternName ? `url(#${patternName})` : 'black';
-                rectangles.push(<rect key={key} x={x} y={y} width={size} height={size} fill={fill} />);
+                // rectangles.push(<rect key={key} x={x} y={y} width={size} height={size} fill={fill} />);
+                rectangles.push({
+                    key,
+                    x,
+                    y,
+                    size,
+                    fill,
+                });
             }
         }
         return rectangles;
@@ -60,15 +67,16 @@ export default function Edit() {
         setRectangles(getRandomRectangles(updatedOptions));
     };
 
-    // const data = {
-    //     quote: quote,
-    //     backgroundPattern: backgroundPattern,
-    //     patterns: patterns,
-    //     color: color,
-    //     rectangles: rectangles,
-    // };
+    const data = {
+        quote: quote,
+        backgroundPattern: backgroundPattern,
+        patterns: patterns,
+        color: color,
+        rectangles: rectangles
+    };
 
-    // console.log(data);
+    const jsonString = JSON.stringify(data);
+    console.log(jsonString);
 
 
     return (
