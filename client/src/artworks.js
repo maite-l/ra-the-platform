@@ -50,3 +50,12 @@ export async function newArtwork(jsonString, id) {
     })).data.save_artworks_default_Entry;
     return artwork;
 }
+
+export async function deleteArtwork(id) {
+    const graphqlQuery = `
+    mutation DeleteArtwork($id: Int!) {
+      deleteEntry(id: $id)
+    }`;
+    await graphQLRequest(graphqlQuery, { id: parseInt(id) });
+    return true;
+}

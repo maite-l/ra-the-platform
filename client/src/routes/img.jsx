@@ -14,6 +14,7 @@ export async function loader({ params }) {
 export default function Img() {
     const { artwork } = useLoaderData();
     const parsedSvgVariables = JSON.parse(artwork[0].svgVariables);
-    return <Svg {...parsedSvgVariables} />;
+    const ypos = 1050;
+    return <Svg yPos={ypos} {...parsedSvgVariables} />;
 }
 

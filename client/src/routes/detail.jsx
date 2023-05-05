@@ -1,5 +1,5 @@
 import {
-    useLoaderData,
+    useLoaderData, Form
 } from "react-router-dom";
 
 import { getArtwork } from '../artworks';
@@ -16,9 +16,10 @@ export async function loader({ params }) {
 export default function Detail() {
     const { artwork } = useLoaderData();
     const parsedSvgVariables = JSON.parse(artwork[0].svgVariables);
+    const ypos = 0;
     return (
         <div className="detail">
-            <Svg {...parsedSvgVariables} />
+            <Svg yPos={ypos} {...parsedSvgVariables} />
             <div className="detail__info">
                 {/* if artwork is not by user */}
                 {/* <div className="detail__info--creator">made by account123</div>
@@ -30,12 +31,24 @@ export default function Detail() {
                 </div>
                 <DownloadButton></DownloadButton> */}
 
+                {/* !!!!!!download button doesnt work yet!!!!!! */}
+
                 {/* if artwork is by user */}
                 <div className="like-amount">37 likes</div>
                 <div className="date-created">created on 12/04/2023</div>
                 <div>..........................</div>
                 <div className="buttons">
-                    <button className="delete-button">delete</button>
+                    <Form
+                        method="post"
+                        action="delete"
+                        onSubmit={(event) => {
+                            if (!confirm("Please confirm you want to delete this record.")) {
+                                event.preventDefault();
+                            }
+                        }}
+                    >
+                        <button type="submit">delete</button>
+                    </Form>
                     <DownloadButton></DownloadButton>
                 </div>
 
