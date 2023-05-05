@@ -9,10 +9,11 @@ import Root, {
 } from "./routes/root";
 import ErrorPage from '../error-page';
 import Edit from './routes/edit';
-import Explore, {loader as exploreLoader} from './routes/explore';
+import Explore, { loader as exploreLoader } from './routes/explore';
 import MyArtworks from './routes/my-artworks';
 import Detail from './routes/detail';
 import Liked from './routes/liked';
+import Img, { loader as imgLoader } from './routes/img';
 
 const router = createBrowserRouter([
   {
@@ -22,7 +23,8 @@ const router = createBrowserRouter([
       {
         errorElement: <ErrorPage />,
         children: [
-          { index: true, 
+          {
+            index: true,
             element: <Explore />,
             loader: exploreLoader
           },
@@ -56,6 +58,11 @@ const router = createBrowserRouter([
     ],
     errorElement: <ErrorPage />,
   },
+  {
+    path: "/img/:id",
+    element: <Img />,
+    loader: imgLoader,
+  }
 ]);
 
 ReactDOM.createRoot(document.getElementById('root')).render(

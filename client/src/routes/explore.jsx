@@ -16,10 +16,9 @@ export default function Explore() {
     return (
         <div>
             {artworks.map((artwork) => {
-                const parsedSvgVariables = JSON.parse(artwork.svgVariables);
                 return (
                     <div key={artwork.id}>
-                        <Svg {...parsedSvgVariables} />
+                        <iframe src={`/img/${artwork.id}`} width={1000} height={700} />
                     </div>
                 );
             })}

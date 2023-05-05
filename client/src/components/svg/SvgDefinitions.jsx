@@ -4,7 +4,6 @@ import TextPathsDef from './defs/TextPathsDef';
 
 export default function SvgDefinitions({ color }) {
 
-    console.log(color);
     return (
         <defs>
             <MaskDef />
