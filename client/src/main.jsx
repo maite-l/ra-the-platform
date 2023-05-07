@@ -12,6 +12,7 @@ import MyArtworks from './routes/my-artworks';
 import Detail, { loader as detailLoader } from './routes/detail';
 import Liked from './routes/liked';
 import Img, { loader as imgLoader } from './routes/img';
+import Login from './routes/login';
 
 const router = createBrowserRouter([
   {
@@ -29,11 +30,9 @@ const router = createBrowserRouter([
           {
             path: "new",
             element: <New />,
-            // loader: ,
             action: newAction,
           },
           {
-            // path: "artwork/ex",
             path: "artwork/:id",
             element: <Detail />,
             loader: detailLoader,
@@ -56,6 +55,10 @@ const router = createBrowserRouter([
             // loader: ,
             // action: ,
           },
+          {
+            path: "login",
+            element: <Login />,
+          }
         ],
       },
     ],

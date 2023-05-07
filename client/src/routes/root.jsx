@@ -22,6 +22,9 @@ export default function Root() {
                         <li>
                             <a href="/liked">LIKED</a>
                         </li>
+                        <li>
+                            <a href="/login">LOGIN</a>
+                        </li>
                     </ul>
                 </nav>
             </div>
