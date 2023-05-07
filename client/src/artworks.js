@@ -1,8 +1,8 @@
-import { graphQLRequest } from "./graphql";
+import { graphQLRequest } from "./util/graphql";
 
-export async function getArtworks() {
+export async function getAllArtworks() {
     const graphqlQuery = `
-    query GetArtworksQuery {
+    query GetAllArtworksQuery {
         artworksEntries {
             ... on artworks_default_Entry {
                 id
@@ -24,6 +24,7 @@ export async function getArtwork(id) {
         ... on artworks_default_Entry {
             id
             svgVariables
+            authorId
         }
         } 
     }`;
@@ -32,30 +33,34 @@ export async function getArtwork(id) {
 }
 
 
-export async function newArtwork(jsonString, id) {
+export async function newArtwork(jsonString, jwt, user) {
     const graphqlQuery = `
-    mutation NewArtwork($svgVariables: String, $id: ID) {
+    mutation NewArtwork($svgVariables: String, $authorId: ID) {
       save_artworks_default_Entry(
-        id: $id
         svgVariables: $svgVariables
         title: "artwork"
-        authorId: "1"
+        authorId: $authorId
       ) {
         id
       }
     }`;
 
-    const artwork = (await graphQLRequest(graphqlQuery, {
-        id: id, svgVariables: jsonString,
-    })).data.save_artworks_default_Entry;
+    const artwork = (await graphQLRequest(
+        graphqlQuery, 
+        { svgVariables: jsonString, authorId: user.id },
+        jwt
+        )).data.save_artworks_default_Entry;
     return artwork;
 }
 
-export async function deleteArtwork(id) {
+export async function deleteArtwork(id, jwt) {
     const graphqlQuery = `
     mutation DeleteArtwork($id: Int!) {
       deleteEntry(id: $id)
     }`;
-    await graphQLRequest(graphqlQuery, { id: parseInt(id) });
+    await graphQLRequest(
+        graphqlQuery, 
+        { id: parseInt(id) },
+        jwt);
     return true;
 }

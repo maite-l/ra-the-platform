@@ -2,35 +2,31 @@ import {
     useLoaderData,
 } from "react-router-dom";
 
-import { getArtworks } from '../artworks';
+import { getAllArtworks } from '../artworks';
+
+import ArtworkOverview from '../components/ArtworkOverview';
 
 export async function loader({ }) {
-    const artworks = await getArtworks();
-    return { artworks };
+    const artworks = await getAllArtworks();
+    const user = JSON.parse(localStorage.getItem("user"));
+    console.log(user);
+    if (user === null) {
+        return { allArtworks: artworks };
+    }
+    else {
+        const allArtworks = artworks.filter(artwork => artwork.author.id !== user.id);
+        return { allArtworks };
+    }
 }
 
 export default function Explore() {
-    const { artworks } = useLoaderData();
+    const { allArtworks } = useLoaderData();
 
     return (
-        <div className="artwork-overview">
-            {artworks.map((artwork) => {
-                return (
-                    <div key={artwork.id} className="artwork-overview__artwork-wrapper">
-                        <a
-                            className="artwork-overview__artwork-link"
-                            href={`/artwork/${artwork.id}`}
-                        />
-                        <iframe
-                            className="artwork-overview__artwork"
-                            src={`/img/${artwork.id}`}
-                            width={1000}
-                            height={700}
-                        />
-                    </div>
-                );
-            })}
-        </div>
+        <>
+            <h2>Explore</h2>
+            <ArtworkOverview artworks={allArtworks} />
+        </>
     );
 }
 
