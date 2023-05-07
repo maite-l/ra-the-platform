@@ -9,6 +9,7 @@ export async function getAllArtworks() {
                 author {
                     id
                 }
+                likes
                 svgVariables
             }
         }
