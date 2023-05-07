@@ -20,13 +20,17 @@ export async function getAllArtworks() {
 export async function getArtwork(id) {
     const graphqlQuery = `
     query GetArtworkQuery($id: [QueryArgument]) {
-        artworksEntries(id: $id) {
+      artworksEntries(id: $id) {
         ... on artworks_default_Entry {
-            id
-            svgVariables
-            authorId
+          id
+          svgVariables
+          likes
+          author {
+            username
+          }
+          dateCreated
         }
-        } 
+      }
     }`;
     const artwork = (await graphQLRequest(graphqlQuery, { id: id })).data.artworksEntries;
     return artwork;

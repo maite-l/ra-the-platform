@@ -15,12 +15,21 @@ export async function loader({ params }) {
 }
 
 export default function Detail() {
+
     const { artwork } = useLoaderData();
+
+    function formatDate(dateString) {
+        const date = new Date(dateString);
+        const options = { day: 'numeric', month: 'short', year: 'numeric' };
+        return date.toLocaleDateString('en-US', options);
+    }
+
     const parsedSvgVariables = JSON.parse(artwork[0].svgVariables);
+    const username = artwork[0].author.username;
+    const dateCreated = formatDate(artwork[0].dateCreated);
     const ypos = 0;
 
     const user = JSON.parse(localStorage.getItem("user"));
-    console.log(user);
 
     let detailInfo;
     if (user) {
@@ -28,7 +37,7 @@ export default function Detail() {
             detailInfo = (
                 <>
                     <div className="like-amount">37 likes</div>
-                    <div className="date-created">created on 12/04/2023</div>
+                    <div className="date-created">created on {dateCreated}</div>
                     <div>..........................</div>
                     <div className="buttons">
                         <Form
@@ -49,8 +58,8 @@ export default function Detail() {
         } else {
             detailInfo = (
                 <>
-                    <div className="detail__info--creator">made by account123</div>
-                    <div className="date-created">created on 12/04/2023</div>
+                    <div className="detail__info--creator">made by {username}</div>
+                    <div className="date-created">on {dateCreated}</div>
                     <div>..........................</div>
                     <div className="likes">
                         <button className="like-button">like</button>
@@ -63,8 +72,8 @@ export default function Detail() {
     } else {    
         detailInfo = (
             <>
-                <div className="detail__info--creator">made by account123</div>
-                <div className="date-created">created on 12/04/2023</div>
+                <div className="detail__info--creator">made by {username}</div>
+                <div className="date-created">on {dateCreated}</div>
                 <div>..........................</div>
                 <div className="likes">
                     <div className="like-amount">37 likes</div>
