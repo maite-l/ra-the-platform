@@ -9,6 +9,7 @@ export async function getAllArtworks() {
                 author {
                     id
                 }
+                likes
                 svgVariables
             }
         }
@@ -27,6 +28,7 @@ export async function getArtwork(id) {
           likes
           author {
             username
+            id
           }
           dateCreated
         }
@@ -44,6 +46,7 @@ export async function newArtwork(jsonString, jwt, user) {
         svgVariables: $svgVariables
         title: "artwork"
         authorId: $authorId
+        likes: "[]"
       ) {
         id
       }
@@ -65,6 +68,21 @@ export async function deleteArtwork(id, jwt) {
     await graphQLRequest(
         graphqlQuery, 
         { id: parseInt(id) },
+        jwt);
+    return true;
+}
+
+export async function likeArtwork(jwt, id, likes) {
+    const graphqlQuery = `
+    mutation LikeArtwork($id: ID, $likes: String) {
+      save_artworks_default_Entry(id: $id, likes: $likes) {
+        id
+        likes
+      }
+    }`;
+    await graphQLRequest(
+        graphqlQuery, 
+        { id: parseInt(id), likes: likes },
         jwt);
     return true;
 }
