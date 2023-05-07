@@ -1,4 +1,4 @@
-import { Outlet, redirect } from "react-router-dom";
+import { Outlet, redirect, Form } from "react-router-dom";
 import * as jose from 'jose';
 
 
@@ -37,7 +37,9 @@ export default function Root() {
                     <a href="/liked">LIKED</a>
                 </li>
                 <li>
-                    <a href="/logout">LOGOUT</a>
+                    <Form method="post" action="logout">
+                        <button className="logout-button" type="submit">LOGOUT</button>
+                    </Form>
                 </li>
             </>
         );
