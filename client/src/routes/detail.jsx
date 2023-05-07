@@ -31,8 +31,6 @@ export default function Detail() {
                 </div>
                 <DownloadButton></DownloadButton> */}
 
-                {/* !!!!!!download button doesnt work yet!!!!!! */}
-
                 {/* if artwork is by user */}
                 <div className="like-amount">37 likes</div>
                 <div className="date-created">created on 12/04/2023</div>

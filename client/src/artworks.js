@@ -1,4 +1,5 @@
-import { graphQLRequest } from "./graphql";
+import { graphQLRequest } from "./util/graphql";
+import { authenticate } from "./auth";
 
 export async function getArtworks() {
     const graphqlQuery = `
@@ -33,21 +34,30 @@ export async function getArtwork(id) {
 
 
 export async function newArtwork(jsonString, id) {
+
+    // temporary: auth hardcoded here
+    const { jwt, user } = await authenticate("maite.lejeune@gmail.com", "123456")
+    console.log(jwt);
+    console.log(user);
+    console.log(user.id)
+
     const graphqlQuery = `
-    mutation NewArtwork($svgVariables: String, $id: ID) {
+    mutation NewArtwork($svgVariables: String, $id: ID, $authorId: ID) {
       save_artworks_default_Entry(
         id: $id
         svgVariables: $svgVariables
         title: "artwork"
-        authorId: "1"
+        authorId: $authorId
       ) {
         id
       }
     }`;
 
-    const artwork = (await graphQLRequest(graphqlQuery, {
-        id: id, svgVariables: jsonString,
-    })).data.save_artworks_default_Entry;
+    const artwork = (await graphQLRequest(
+        graphqlQuery, 
+        { id: id, svgVariables: jsonString, authorId: user.id },
+        jwt
+        )).data.save_artworks_default_Entry;
     return artwork;
 }
 

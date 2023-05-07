@@ -5,8 +5,4 @@ scope:
   - 'sections.40f50dfd-14d2-4db4-be79-9a96710f6bc5:read' # artworks
   - 'entrytypes.0f461aa4-2ec2-489d-b0ac-390a151969cb:read' # Default
   - 'usergroups.everyone:read'
-  - 'sections.40f50dfd-14d2-4db4-be79-9a96710f6bc5:edit' # artworks
-  - 'entrytypes.0f461aa4-2ec2-489d-b0ac-390a151969cb:edit' # Default
-  - 'entrytypes.0f461aa4-2ec2-489d-b0ac-390a151969cb:create' # Default
-  - 'entrytypes.0f461aa4-2ec2-489d-b0ac-390a151969cb:save' # Default
-  - 'entrytypes.0f461aa4-2ec2-489d-b0ac-390a151969cb:delete' # Default
+  - 'usergroups.2556b23e-96c3-43ee-818c-a56f40f0b1fd:read' # Front-end users

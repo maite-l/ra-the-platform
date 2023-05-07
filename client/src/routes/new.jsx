@@ -13,6 +13,9 @@ import DownloadButton from '../components/DownloadButton';
 let jsonString;
 
 export async function action() {
+    // const jwt = localStorage.getItem("jwt");
+    // const user = JSON.parse(localStorage.getItem("user"));
+    // const artwork = await newArtwork(jsonString, jwt, user);
     const artwork = await newArtwork(jsonString);
     const id = artwork.id;
     return redirect(`/artwork/${id}`);

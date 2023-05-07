@@ -1,0 +1,15 @@
+isPublic: false
+name: 'Private Schema'
+scope:
+  - 'sites.d7462a5a-030b-47ef-9b31-920635c00d5c:read' # ra-the-platform
+  - 'elements.drafts:read'
+  - 'elements.revisions:read'
+  - 'elements.inactive:read'
+  - 'sections.40f50dfd-14d2-4db4-be79-9a96710f6bc5:read' # artworks
+  - 'entrytypes.0f461aa4-2ec2-489d-b0ac-390a151969cb:read' # Default
+  - 'usergroups.everyone:read'
+  - 'sections.40f50dfd-14d2-4db4-be79-9a96710f6bc5:edit' # artworks
+  - 'entrytypes.0f461aa4-2ec2-489d-b0ac-390a151969cb:edit' # Default
+  - 'entrytypes.0f461aa4-2ec2-489d-b0ac-390a151969cb:create' # Default
+  - 'entrytypes.0f461aa4-2ec2-489d-b0ac-390a151969cb:save' # Default
+  - 'entrytypes.0f461aa4-2ec2-489d-b0ac-390a151969cb:delete' # Default

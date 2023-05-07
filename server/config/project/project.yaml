@@ -1,4 +1,4 @@
-dateModified: 1683289696
+dateModified: 1683446417
 email:
   fromEmail: maite.lejeune@student.howest.be
   fromName: ra-the-platform
@@ -9,19 +9,128 @@ meta:
     12d508d2-3246-4cc0-a641-d85f16cec7b5: likes # likes
     40f50dfd-14d2-4db4-be79-9a96710f6bc5: artworks # artworks
     46dc0937-252d-42b1-af90-0b9484275b6c: 'svg variables' # svg variables
+    2556b23e-96c3-43ee-818c-a56f40f0b1fd: 'Front-end users' # Front-end users
     79349a10-8d31-4f98-ab9a-bfc7c023bd9a: Common # Common
     d7462a5a-030b-47ef-9b31-920635c00d5c: ra-the-platform # ra-the-platform
+    e1a82f81-db76-46d5-9a2b-09a74111eaf0: 'Private Schema' # Private Schema
     f038d3eb-e61c-4beb-8630-91e826953d0a: ra-the-platform # ra-the-platform
     f81c835b-aa2f-4d77-a43c-753f9ba06cbf: 'Public Schema' # Public Schema
+plugins:
+  graphql-authentication:
+    edition: standard
+    enabled: true
+    licenseKey: 27I34V8LLNCTRDSIX2XYSYD6
+    schemaVersion: 1.3.0
+    settings:
+      accountCooldown: 'Too many log in attempts; please try again shortly'
+      accountDeleted: 'Successfully deleted account'
+      accountLocked: 'Sorry, your account is currently locked'
+      activationEmailSent: 'You will receive an email if it matches an account in our system'
+      allowMagicAuthentication: null
+      allowRegistration: '1'
+      allowedFacebookDomains: null
+      allowedGoogleDomains: null
+      allowedMicrosoftDomains: null
+      allowedTwitterDomains: null
+      appleClientId: null
+      appleClientSecret: null
+      appleRedirectUrl: null
+      appleServiceId: null
+      appleServiceSecret: null
+      assetMutations: null
+      assetNotFound: 'We couldn''t find any matching assets'
+      assetQueries: null
+      emailNotInScope: 'No email in scope'
+      entryMutations: null
+      entryNotFound: 'We couldn''t find any matching entries'
+      entryQueries: null
+      facebookAppId: null
+      facebookAppSecret: null
+      facebookEmailMismatch: 'Email address doesn''t match allowed Facebook domains'
+      facebookRedirectUrl: null
+      fieldRestrictions:
+        __assoc__:
+          -
+            - schema-1
+            -
+              __assoc__:
+                -
+                  - likes
+                  - queryMutate
+                -
+                  - svgVariables
+                  - queryMutate
+          -
+            - 'schema-Private Schema'
+            -
+              __assoc__:
+                -
+                  - likes
+                  - queryMutate
+                -
+                  - svgVariables
+                  - queryMutate
+          -
+            - 'schema-Public Schema'
+            -
+              __assoc__:
+                -
+                  - likes
+                  - queryMutate
+                -
+                  - svgVariables
+                  - queryMutate
+      forbiddenField: 'User doesn''t have permission to access requested field(s)'
+      forbiddenMutation: 'User doesn''t have permission to perform this mutation'
+      googleClientId: null
+      googleEmailMismatch: 'Email address doesn''t match allowed Google domains'
+      googleTokenIdInvalid: 'Invalid Google Token ID'
+      granularSchemas: null
+      invalidEmailAddress: 'Invalid email address'
+      invalidHeader: 'Invalid Authorization Header'
+      invalidJwtSecretKey: 'Invalid JWT Secret Key'
+      invalidLogin: 'We couldn''t log you in with the provided details'
+      invalidMagicCode: 'Invalid magic code'
+      invalidOauthToken: 'Invalid OAuth Token'
+      invalidPasswordMatch: 'Passwords do not match'
+      invalidPasswordUpdate: 'We couldn''t update the password with the provided details'
+      invalidRefreshToken: 'Invalid Refresh Token'
+      invalidRequest: 'Cannot validate request'
+      invalidSchema: 'No schema has been set for this user group'
+      invalidUserUpdate: 'We couldn''t update the user with the provided details'
+      jwtExpiration: '30 minutes'
+      jwtRefreshExpiration: '3 months'
+      jwtSecretKey: GI2505FIBjz4BdpFxIBYwdWL33PXPY2z
+      magicLinkSent: 'You will receive an email if it matches an account in our system'
+      microsoftAppId: null
+      microsoftAppSecret: null
+      microsoftEmailMismatch: 'Email address doesn''t match allowed Microsoft domains'
+      microsoftRedirectUrl: null
+      passwordResetRequired: 'Password reset required; please check your email'
+      passwordResetSent: 'You will receive an email if it matches an account in our system'
+      passwordSaved: 'Successfully saved password'
+      passwordUpdated: 'Successfully updated password'
+      permissionType: single
+      sameSitePolicy: strict
+      schemaId: null
+      schemaName: 'Private Schema'
+      siteId: null
+      skipActivatedCheck: ''
+      skipSocialActivation: null
+      tokenNotFound: 'We couldn''t find any matching tokens'
+      twitterApiKey: null
+      twitterApiKeySecret: null
+      twitterEmailMismatch: 'Email address doesn''t match allowed Twitter domains'
+      twitterRedirectUrl: null
+      userActivated: 'Successfully activated user'
+      userGroup: '1'
+      userHasPassword: 'User not password-less'
+      userNotActivated: 'Please activate your account'
+      userNotFound: 'We couldn''t find any matching users'
+      volumeNotFound: 'We couldn''t find any matching volumes'
 system:
   edition: pro
   live: true
   name: ra-the-platform
   schemaVersion: 4.4.0.4
   timeZone: America/Los_Angeles
-users:
-  allowPublicRegistration: false
-  defaultGroup: null
-  photoSubpath: null
-  photoVolumeUid: null
-  requireEmailVerification: true
