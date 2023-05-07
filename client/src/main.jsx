@@ -14,6 +14,7 @@ import Liked from './routes/liked';
 import Img, { loader as imgLoader } from './routes/img';
 import Login, { action as logInAction } from './routes/login';
 import { action as logOutAction } from './routes/logout';
+import Register, { action as registerAction } from './routes/register';
 
 const router = createBrowserRouter([
   {
@@ -48,13 +49,11 @@ const router = createBrowserRouter([
             path: "my-artworks",
             element: <MyArtworks />,
             loader: myArtworksLoader,
-            // action: ,
           },
           {
             path: "liked",
             element: <Liked />,
             // loader: ,
-            // action: ,
           },
           {
             path: "logout",
@@ -74,6 +73,11 @@ const router = createBrowserRouter([
     path: "login",
     element: <Login />,
     action: logInAction,
+  },
+  {
+    path: "register",
+    element: <Register />,
+    action: registerAction,
   }
 ]);
 

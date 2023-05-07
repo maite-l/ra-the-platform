@@ -52,6 +52,9 @@ export default function Root() {
                 <li>
                     <a href="/login">LOGIN</a>
                 </li>
+                <li>
+                    <a href="/register">REGISTER</a>
+                </li>
             </>
         );
     }
