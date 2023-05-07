@@ -1,4 +1,4 @@
-import { Outlet, redirect, Form } from "react-router-dom";
+import { NavLink, Outlet, redirect, Form } from "react-router-dom";
 import * as jose from 'jose';
 
 
@@ -9,12 +9,11 @@ export default function Root() {
 
     if (jwt) {
         const claims = jose.decodeJwt(jwt);
-        console.log(claims);
         const expires = new Date(claims.exp * 1000);
         if (expires < new Date()) {
             localStorage.removeItem("jwt");
             localStorage.removeItem("user");
-            throw redirect("/");
+            throw redirect("/login");
         }
     }
 
@@ -38,7 +37,7 @@ export default function Root() {
                 </li>
                 <li>
                     <Form method="post" action="logout">
-                        <button className="logout-button" type="submit">LOGOUT</button>
+                        <button className="logout-button" type="submit">LOG OUT</button>
                     </Form>
                 </li>
             </>
@@ -53,7 +52,7 @@ export default function Root() {
                     <a href="/login">LOGIN</a>
                 </li>
                 <li>
-                    <a href="/register">REGISTER</a>
+                    <a href="/register">SIGN UP</a>
                 </li>
             </>
         );
@@ -63,10 +62,10 @@ export default function Root() {
     return (
         <>
             <div className="sidebar">
-                <div className="title">
+                <a href="/" className="title">
                     <h1>Mix&Match</h1>
                     <p>Pattern Generator</p>
-                </div>
+                </a>
                 <nav>
                     <ul>
                         {links}

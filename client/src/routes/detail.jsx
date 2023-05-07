@@ -41,14 +41,10 @@ export default function Detail() {
     likes = JSON.parse(artwork[0].likes);
     user = JSON.parse(localStorage.getItem("user"));
 
-    //check where this needs to go
     isLikedByUser = false;
     if (user) {
         isLikedByUser = likes.includes(Number(user.id));
     }
-    
-
-
 
     function formatDate(dateString) {
         const date = new Date(dateString);
@@ -94,9 +90,18 @@ export default function Detail() {
                     <div className="date-created">on {dateCreated}</div>
                     <div>..........................</div>
                     <div className="likes">
-                        <Form method="post" >
-                            <button type="submit">like</button>
+                        <Form method="post">
+                            {isLikedByUser ? (
+                                <button type="submit" className="unlike-button">
+                                    unlike
+                                </button>
+                            ) : (
+                                <button type="submit" className="like-button">
+                                    like
+                                </button>
+                            )}
                         </Form>
+
                         <div className="like-amount">{likeCount} likes</div>
                     </div>
                     <DownloadButton />

@@ -12,24 +12,30 @@ export async function loader({ }) {
     const likedArtworks = artworks.filter(artwork => {
         const likes = JSON.parse(artwork.likes);
         if (likes && likes.includes(Number(user.id))) {
-            console.log("liked");
             return true;
         }
     });
-    console.log(likedArtworks);
 
     return { likedArtworks };
 
 }
 
-export default function Liked() {
+export default function LikedArtworks() {
     const { likedArtworks } = useLoaderData();
 
     return (
         <>
-            <h2>Liked artworks</h2>
-            <ArtworkOverview artworks={likedArtworks} />
+            <h2>Liked Artworks</h2>
+            {likedArtworks && likedArtworks.length > 0 ? (
+                <ArtworkOverview artworks={likedArtworks} />
+            ) : (
+                <>
+                    <p>You haven't liked any artworks yet.</p>
+                    <p>Go <a href="new">explore</a> and find one you like.</p>
+                </>
+            )}
         </>
     );
 }
+
 

@@ -68,16 +68,19 @@ const router = createBrowserRouter([
     path: "/img/:id",
     element: <Img />,
     loader: imgLoader,
+    errorElement: <ErrorPage />,
   },
   {
     path: "login",
     element: <Login />,
     action: logInAction,
+    errorElement: <ErrorPage />,
   },
   {
     path: "register",
     element: <Register />,
     action: registerAction,
+    errorElement: <ErrorPage />,
   }
 ]);
 

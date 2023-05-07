@@ -12,26 +12,35 @@ export async function action({ request }) {
 
 export default function Login() {
     return (
-        <>
+        <div className='auth-form__wrapper login'>
+            <a href="/" className="title">
+                <h1>Mix&Match</h1>
+                <p>Pattern Generator</p>
+            </a>
             <h2>Login</h2>
-            <Form method="post">
+            <Form method="post" className='auth-form'>
                 <div>
                     <label>
-                        Email:
-                        <input type="text" name="email" defaultValue="maite.lejeune@outlook.com" />
+                        email
+                        <div><input type="text" name="email" placeholder='john.doe@gmail.com' /></div>
                     </label>
                 </div>
                 <div>
                     <label>
-                        Password:
-                        <input type="password" name="password" defaultValue="123456" />
+                        password
+                        <div><input type="password" name="password" /></div>
                     </label>
                 </div>
                 <div>
-                    <button type='submit'>Login</button>
+                    <button type='submit'>login</button>
                 </div>
 
             </Form>
-        </>
+
+            <div className='other-options'>
+                <p>or <a href="/register">make an account</a></p>
+                <p>or go <a href="/">explore without an account</a></p>
+            </div>
+        </div>
     );
 }

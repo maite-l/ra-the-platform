@@ -39,11 +39,56 @@ html {
     color: #FEFDEC;
     text-decoration: none;
 }
+.sidebar .title {
+    color: #FEFDEC;
+}
 
 .logout-button {
     background-color: transparent;
     padding: 0;
 }
+.logout-button:hover {
+    background-color: transparent;
+}
+
+a {
+    color: #333;
+}
+
+.title {
+    text-decoration: none;
+    color: #38726C;
+}
+
+.auth-form__wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    width: 23rem;
+    height: 80vh;
+    margin: auto;
+}
+
+.auth-form {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 1rem;
+    width: 100%;
+}
+
+.auth-form div, .auth-form input, .auth-form button{
+    width: 100%;
+}
+
+.auth-form__wrapper .other-options {
+    text-align: center;
+    padding-block-start: 1rem;
+}
+
 
 h1 {
     margin: 0;
@@ -121,10 +166,16 @@ button {
     line-height: 1.5;
     border: none;
     border-radius: 2rem;
-    padding: 0.5rem;
+    padding-inline: 1rem;
+    padding-block: 0.5rem;
     cursor: pointer;
     transition: all 0.2s;
     background-color: #38726C;
+    color: #FEFDEC;
+}
+
+button:hover {
+    background-color: #333;
     color: #FEFDEC;
 }
 
@@ -133,13 +184,28 @@ button {
     font-size: 1rem;
     line-height: 1.5;
     border-radius: 2rem;
-    padding: 0.5rem;
+    padding-block: 0.5rem;
+    padding-inline: 1rem;
     cursor: pointer;
     transition: all 0.2s;
     background-color: #38726C;
     color: #FEFDEC;
     text-decoration: none;
     text-align: center;
+}
+
+.download-button:hover {
+    background-color: #333;
+    color: #FEFDEC;
+}
+
+.like-button {
+    border: 2px solid transparent;
+}
+.unlike-button {
+    background-color: transparent;
+    color: #38726C;
+    border: 2px solid #38726C;
 }
 
 .edit .controls form .form-buttons button {
@@ -163,10 +229,12 @@ body, input, select {
 }
 
 input, select {
-    cursor: pointer;
     border: 2px solid #333;
     border-radius: 2rem;
     padding: 0.5rem;
+}
+select, input[type="color"] {
+    cursor: pointer;
 }
 input:focus,
 select:focus {
@@ -252,7 +320,9 @@ span {
     align-items: center;
     justify-content: center;
     width: 100%;
-    padding-block-start: 3rem;
+    height: 100vh;
+    margin: auto;
+    gap: 1rem;
 }
 
 
