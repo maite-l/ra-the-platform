@@ -1,8 +1,8 @@
 import { graphQLRequest } from "./util/graphql";
 
-export async function getArtworks() {
+export async function getAllArtworks() {
     const graphqlQuery = `
-    query GetArtworksQuery {
+    query GetAllArtworksQuery {
         artworksEntries {
             ... on artworks_default_Entry {
                 id

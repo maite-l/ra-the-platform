@@ -5,14 +5,14 @@ import './css/style.css'
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Root from "./routes/root";
 import ErrorPage from '../error-page';
-import New, {action as newAction} from './routes/new';
+import New, { action as newAction } from './routes/new';
 import { action as deleteAction } from './routes/delete';
 import Explore, { loader as exploreLoader } from './routes/explore';
-import MyArtworks from './routes/my-artworks';
+import MyArtworks, { loader as myArtworksLoader } from './routes/my-artworks';
 import Detail, { loader as detailLoader } from './routes/detail';
 import Liked from './routes/liked';
 import Img, { loader as imgLoader } from './routes/img';
-import Login, { action as loginAction} from './routes/login';
+import Login, { action as loginAction } from './routes/login';
 
 const router = createBrowserRouter([
   {
@@ -46,7 +46,7 @@ const router = createBrowserRouter([
           {
             path: "my-artworks",
             element: <MyArtworks />,
-            // loader: ,
+            loader: myArtworksLoader,
             // action: ,
           },
           {
