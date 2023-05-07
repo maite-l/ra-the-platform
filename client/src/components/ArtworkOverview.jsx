@@ -1,5 +1,4 @@
 export default function Explore({ artworks }) {
-    console.log(artworks);
     return (
         <div className="artwork-overview">
             {artworks.map((artwork) => {

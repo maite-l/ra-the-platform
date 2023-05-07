@@ -16,7 +16,15 @@ export default function MyArtworks() {
     return (
         <>
             <h2>My Artworks</h2>
-            <ArtworkOverview artworks={userArtworks} />
+            {userArtworks && userArtworks.length > 0 ? (
+                <ArtworkOverview artworks={userArtworks} />
+            ) : (
+                <>
+                    <p>You haven't made any artworks yet.</p>
+                    <p>Make one <a href="new">here</a>.</p>
+                </>
+            )}
         </>
     );
 }
+
