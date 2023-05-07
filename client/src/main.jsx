@@ -9,7 +9,7 @@ import New, { action as newAction } from './routes/new';
 import { action as deleteAction } from './routes/delete';
 import Explore, { loader as exploreLoader } from './routes/explore';
 import MyArtworks, { loader as myArtworksLoader } from './routes/my-artworks';
-import Detail, { loader as detailLoader } from './routes/detail';
+import Detail, { action as detailAction, loader as detailLoader } from './routes/detail';
 import Liked from './routes/liked';
 import Img, { loader as imgLoader } from './routes/img';
 import Login, { action as logInAction } from './routes/login';
@@ -38,7 +38,7 @@ const router = createBrowserRouter([
             path: "artwork/:id",
             element: <Detail />,
             loader: detailLoader,
-            // action: ,
+            action: detailAction,
           },
           {
             path: "artwork/:id/delete",
