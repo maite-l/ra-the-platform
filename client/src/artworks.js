@@ -24,6 +24,7 @@ export async function getArtwork(id) {
         ... on artworks_default_Entry {
             id
             svgVariables
+            authorId
         }
         } 
     }`;
