@@ -61,11 +61,10 @@ export const rgbToHsl = (rgbArr) => {
 }
 
 export const hslToName = (hsl) => {
-    console.log(hsl)
     const l = Math.floor(hsl.l)
     const s = Math.floor(hsl.s)
     const h = Math.floor(hsl.h);
-    if (s <= 10 && l >= 90) {
+    if (s <= 90 && l >= 90) {
         return ("white")
     } else if (l <= 15) {
         return ("black")

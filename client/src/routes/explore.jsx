@@ -55,7 +55,7 @@ export default function Explore() {
     return (
         <>
             <h2>Explore</h2>
-            <Form>
+            <Form className="filter">
                 <SelectField
                     id="color"
                     label="filter on color"
@@ -63,7 +63,6 @@ export default function Explore() {
                     value={colorValue}
                     onChange={(event) => {
                         setColor(event.target.value);
-                        console.log(event.target.value);
                         const isFirstSearch = color == null;
                         submit(event.currentTarget.form, {
                             replace: !isFirstSearch,

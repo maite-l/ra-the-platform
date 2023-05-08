@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Form, redirect } from 'react-router-dom'
+
 import { hexToName } from '../util/hexToName';
 
 import { newArtwork } from '../artworks';
@@ -48,7 +49,7 @@ export default function New() {
         }
         return rectangles;
     }
-    const [quote, setQuote] = useState("hello devine");
+    const [quote, setQuote] = useState("mix&match");
     const [backgroundPattern, setBackgroundPattern] = useState('dots');
     const [patterns, setPatterns] = useState([
         { id: 0, name: 'wavy', checked: false },
@@ -66,8 +67,6 @@ export default function New() {
 
     ]);
     const [color, setColor] = useState(['#38726C', '#FEFDEC']);
-    console.log(color[0]);
-    console.log(hexToName(color[0]));
     const [rectangles, setRectangles] = useState(getRandomRectangles(patterns));
 
     const handleOptionChange = (optionId) => {

@@ -5,7 +5,6 @@ import ArtworkOverview from '../components/ArtworkOverview';
 
 export async function loader({ params }) {
     const artworks = await getArtworksByUser(params);
-    console.log(artworks);
     return { artworks };
 }
 

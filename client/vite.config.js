@@ -8,7 +8,7 @@ export default defineConfig({
     proxy: {
       "/api": {
         // has to be changed to correct port of backend every time it is restarted (ddev link doesnt work)
-        target: "https://127.0.0.1:51709",
+        target: "https://127.0.0.1:49598",
         changeOrigin: true,
         secure: false,
       },

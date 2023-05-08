@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom/client'
 import './css/reset.css'
 import './css/style.css'
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-// import Root from "./routes/root";
 import Root, { loader as rootLoader } from './routes/root';
 import ErrorPage from '../error-page';
 import New, { action as newAction } from './routes/new';

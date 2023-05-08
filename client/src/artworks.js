@@ -14,9 +14,7 @@ export async function getAllArtworks(color) {
       }
     }
   }`;
-  console.log(graphqlQuery);
   const artworks = (await graphQLRequest(graphqlQuery, { color: color })).data.entries;
-  console.log(artworks);
   return artworks;
 }
 
