@@ -20,17 +20,13 @@ export async function loader({ params }) {
 
 export async function action({ params }) {
     const jwt = localStorage.getItem("jwt");
-    console.log(likes);
     if (isLikedByUser) {
-        console.log("User has already liked this artwork.");
         const userLikedIndex = likes.indexOf(Number(user.id));
         likes.splice(userLikedIndex, 1);
     } else {
         likes.push(Number(user.id));
-        console.log("User has not yet liked this artwork.");
     }
 
-    console.log(likes);
     await likeArtwork(jwt, params.id, JSON.stringify(likes));
     return redirect(`/artwork/${params.id}`);
 }

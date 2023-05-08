@@ -1,20 +1,20 @@
 import { graphQLRequest } from "./util/graphql";
 
-export async function getAllArtworks() {
+export async function getAllArtworks(color) {
   const graphqlQuery = `
-    query GetAllArtworksQuery {
-        artworksEntries {
-            ... on artworks_default_Entry {
-                id
-                author {
-                    id
-                }
-                likes
-                svgVariables
-            }
+  query getOtherArtworks($color: String) {
+    entries(search: $color) {
+      ... on artworks_default_Entry {
+        id
+        author {
+          id
         }
-    }`;
-  const artworks = (await graphQLRequest(graphqlQuery)).data.artworksEntries;
+        likes
+        svgVariables
+      }
+    }
+  }`;
+  const artworks = (await graphQLRequest(graphqlQuery, { color: color })).data.entries;
   return artworks;
 }
 
@@ -58,14 +58,15 @@ export async function getArtwork(id) {
 }
 
 
-export async function newArtwork(jsonString, jwt, user) {
+export async function newArtwork(jsonString, jwt, user, colorTags) {
   const graphqlQuery = `
-    mutation NewArtwork($svgVariables: String, $authorId: ID) {
+    mutation NewArtwork($svgVariables: String, $authorId: ID, $colors: String) {
       save_artworks_default_Entry(
         svgVariables: $svgVariables
         title: "artwork"
         authorId: $authorId
         likes: "[]"
+        colors: $colors
       ) {
         id
       }
@@ -73,7 +74,7 @@ export async function newArtwork(jsonString, jwt, user) {
 
   const artwork = (await graphQLRequest(
     graphqlQuery,
-    { svgVariables: jsonString, authorId: user.id },
+    { svgVariables: jsonString, authorId: user.id, colors: colorTags },
     jwt
   )).data.save_artworks_default_Entry;
   return artwork;

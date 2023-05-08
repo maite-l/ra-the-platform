@@ -54,6 +54,18 @@ fieldLayouts:
             userCondition: null
             warning: null
             width: 100
+          -
+            elementCondition: null
+            fieldUid: 55c0323f-62ef-4435-b259-81362fce0ec6 # colors
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 56549dbd-4790-4229-aee3-a4420707dd63
+            userCondition: null
+            warning: null
+            width: 100
         name: Content
         uid: 3ea86307-14a3-4d09-b33d-e95c764738ce
         userCondition: null

@@ -1,4 +1,4 @@
-dateModified: 1683478441
+dateModified: 1683554756
 email:
   fromEmail: maite.lejeune@student.howest.be
   fromName: ra-the-platform
@@ -9,6 +9,7 @@ meta:
     12d508d2-3246-4cc0-a641-d85f16cec7b5: likes # likes
     40f50dfd-14d2-4db4-be79-9a96710f6bc5: artworks # artworks
     46dc0937-252d-42b1-af90-0b9484275b6c: 'svg variables' # svg variables
+    55c0323f-62ef-4435-b259-81362fce0ec6: colors # colors
     2556b23e-96c3-43ee-818c-a56f40f0b1fd: 'Front-end users' # Front-end users
     79349a10-8d31-4f98-ab9a-bfc7c023bd9a: Common # Common
     d7462a5a-030b-47ef-9b31-920635c00d5c: ra-the-platform # ra-the-platform

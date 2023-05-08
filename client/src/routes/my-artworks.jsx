@@ -6,7 +6,6 @@ import ArtworkOverview from '../components/ArtworkOverview';
 export async function loader() {
     const user = JSON.parse(localStorage.getItem("user"));
     const artworks = await getArtworksByUser(user);
-    console.log(artworks);
     return { artworks };
 }
 

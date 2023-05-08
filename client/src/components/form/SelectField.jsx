@@ -17,7 +17,10 @@ export default function SelectField({ id, label, options, value, onChange }) {
 export function SelectOptions({ options }) {
     return (
         options.map((option) => {
-            const value = option.name.replace(/[\s]/g, '-').replace(/[\s()]/g, '');
+            let value = option.name.replace(/[\s]/g, '-').replace(/[\s()]/g, '');
+            if (value === '---') {
+                value = '';
+            };
             return (
                 <option key={option.id} value={value}>
                     {option.name}
