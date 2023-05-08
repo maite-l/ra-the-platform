@@ -1,10 +1,10 @@
-columnSuffix: tcjwkdbq
+columnSuffix: epujsuir
 contentColumnType: text
 fieldGroup: 79349a10-8d31-4f98-ab9a-bfc7c023bd9a # Common
-handle: likes
+handle: colors
 instructions: null
-name: likes
-searchable: false
+name: colors
+searchable: true
 settings:
   byteLimit: null
   charLimit: null

@@ -1,20 +1,22 @@
 import { graphQLRequest } from "./util/graphql";
 
-export async function getAllArtworks() {
+export async function getAllArtworks(color) {
   const graphqlQuery = `
-    query GetAllArtworksQuery {
-        artworksEntries {
-            ... on artworks_default_Entry {
-                id
-                author {
-                    id
-                }
-                likes
-                svgVariables
-            }
+  query getOtherArtworks($color: String) {
+    entries(search: $color) {
+      ... on artworks_default_Entry {
+        id
+        author {
+          id
         }
-    }`;
-  const artworks = (await graphQLRequest(graphqlQuery)).data.artworksEntries;
+        likes
+        svgVariables
+      }
+    }
+  }`;
+  console.log(graphqlQuery);
+  const artworks = (await graphQLRequest(graphqlQuery, { color: color })).data.entries;
+  console.log(artworks);
   return artworks;
 }
 

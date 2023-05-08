@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Form, redirect } from 'react-router-dom'
+import { hexToName } from '../util/hexToName';
 
 import { newArtwork } from '../artworks';
 
@@ -64,6 +65,8 @@ export default function New() {
 
     ]);
     const [color, setColor] = useState(['#38726C', '#FEFDEC']);
+    console.log(color[0]);
+    console.log(hexToName(color[0]));
     const [rectangles, setRectangles] = useState(getRandomRectangles(patterns));
 
     const handleOptionChange = (optionId) => {
