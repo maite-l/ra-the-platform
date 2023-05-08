@@ -5,7 +5,6 @@ export async function loader() {
     //doesnt work correctly, this component doesnt rerender every click so this doesnt get checked every time it needs to be
     const user = JSON.parse(localStorage.getItem("user"));
     const jwt = localStorage.getItem("jwt");
-    console.log("jwt", jwt);
 
     if (jwt !== null) {
         const claims = jose.decodeJwt(jwt);
@@ -19,7 +18,6 @@ export async function loader() {
             return redirect("/login");
         }
         else {
-            console.log(user, jwt)
             return { user, jwt };
         }
     } else {

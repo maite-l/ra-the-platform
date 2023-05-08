@@ -18,7 +18,7 @@ export async function getAllArtworks() {
   return artworks;
 }
 
-export async function getMyArtworks(user) {
+export async function getArtworksByUser(user) {
   const graphqlQuery = `
     query getMyArtworks ($authorId: [QueryArgument]) {
       artworksEntries(authorId: $authorId) {
@@ -26,6 +26,7 @@ export async function getMyArtworks(user) {
                 id
                 author {
                     id
+                    username
                 }
                 likes
                 svgVariables
