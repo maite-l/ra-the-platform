@@ -12,11 +12,12 @@ import Svg from '../components/svg/Svg';
 import DownloadButton from '../components/DownloadButton';
 
 let jsonString;
+let colorTags;
 
 export async function action() {
     const jwt = localStorage.getItem("jwt");
     const user = JSON.parse(localStorage.getItem("user"));
-    const artwork = await newArtwork(jsonString, jwt, user);
+    const artwork = await newArtwork(jsonString, jwt, user, colorTags);
     const id = artwork.id;
     return redirect(`/artwork/${id}`);
 }
@@ -90,6 +91,7 @@ export default function New() {
         rectangles: rectangles
     };
     jsonString = JSON.stringify(data);
+    colorTags = `${hexToName(color[0])} ${hexToName(color[1])}`
 
     const ypos = 0;
 

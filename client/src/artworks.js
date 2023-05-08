@@ -60,14 +60,15 @@ export async function getArtwork(id) {
 }
 
 
-export async function newArtwork(jsonString, jwt, user) {
+export async function newArtwork(jsonString, jwt, user, colorTags) {
   const graphqlQuery = `
-    mutation NewArtwork($svgVariables: String, $authorId: ID) {
+    mutation NewArtwork($svgVariables: String, $authorId: ID, $colors: String) {
       save_artworks_default_Entry(
         svgVariables: $svgVariables
         title: "artwork"
         authorId: $authorId
         likes: "[]"
+        colors: $colors
       ) {
         id
       }
@@ -75,7 +76,7 @@ export async function newArtwork(jsonString, jwt, user) {
 
   const artwork = (await graphQLRequest(
     graphqlQuery,
-    { svgVariables: jsonString, authorId: user.id },
+    { svgVariables: jsonString, authorId: user.id, colors: colorTags },
     jwt
   )).data.save_artworks_default_Entry;
   return artwork;
