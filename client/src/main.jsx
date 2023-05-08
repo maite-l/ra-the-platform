@@ -3,8 +3,8 @@ import ReactDOM from 'react-dom/client'
 import './css/reset.css'
 import './css/style.css'
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-// import Root, { loader as RootLoader } from "./routes/root";
-import Root from "./routes/root";
+// import Root from "./routes/root";
+import Root, { loader as rootLoader} from './routes/root';
 import ErrorPage from '../error-page';
 import New, { action as newAction } from './routes/new';
 import { action as deleteAction } from './routes/delete';
@@ -21,7 +21,7 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <Root />,
-    // loader: RootLoader,
+    loader: rootLoader,
     children: [
       {
         errorElement: <ErrorPage />,
