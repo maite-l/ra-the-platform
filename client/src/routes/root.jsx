@@ -24,16 +24,16 @@ export default function Root() {
         links = (
             <>
                 <li>
-                    <a href="/">EXPLORE</a>
+                    <NavLink className="navlink" to="/">EXPLORE</NavLink>
                 </li>
                 <li>
-                    <a href="/new">NEW ARTWORK</a>
+                    <NavLink className="navlink" to="/new">NEW ARTWORK</NavLink>
                 </li>
                 <li>
-                    <a href="/my-artworks">MY ARTWORKS</a>
+                    <NavLink className="navlink" to="/my-artworks">MY ARTWORKS</NavLink>
                 </li>
                 <li>
-                    <a href="/liked">LIKED</a>
+                    <NavLink className="navlink" to="/liked">LIKED</NavLink>
                 </li>
                 <li>
                     <Form method="post" action="logout">
@@ -46,13 +46,13 @@ export default function Root() {
         links = (
             <>
                 <li>
-                    <a href="/">EXPLORE</a>
+                    <NavLink className="navlink" to="/">EXPLORE</NavLink>
                 </li>
                 <li>
-                    <a href="/login">LOGIN</a>
+                    <NavLink className="navlink" to="/login">LOGIN</NavLink>
                 </li>
                 <li>
-                    <a href="/register">SIGN UP</a>
+                    <NavLink className="navlink" to="/register">SIGN UP</NavLink>
                 </li>
             </>
         );

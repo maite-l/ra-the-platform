@@ -31,7 +31,7 @@ export default function LikedArtworks() {
             ) : (
                 <>
                     <p>You haven't liked any artworks yet.</p>
-                    <p>Go <a href="new">explore</a> and find one you like.</p>
+                    <p>Go <a href="/">explore</a> and find one you like.</p>
                 </>
             )}
         </>
