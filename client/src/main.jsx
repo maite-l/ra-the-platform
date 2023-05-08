@@ -4,13 +4,14 @@ import './css/reset.css'
 import './css/style.css'
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 // import Root from "./routes/root";
-import Root, { loader as rootLoader} from './routes/root';
+import Root, { loader as rootLoader } from './routes/root';
 import ErrorPage from '../error-page';
 import New, { action as newAction } from './routes/new';
 import { action as deleteAction } from './routes/delete';
 import Explore, { loader as exploreLoader } from './routes/explore';
 import MyArtworks, { loader as myArtworksLoader } from './routes/my-artworks';
 import Detail, { action as detailAction, loader as detailLoader } from './routes/detail';
+import User, { loader as userLoader } from './routes/user'
 import Liked, { loader as likedLoader } from './routes/liked';
 import Img, { loader as imgLoader } from './routes/img';
 import Login, { action as logInAction } from './routes/login';
@@ -45,7 +46,11 @@ const router = createBrowserRouter([
           {
             path: "artwork/:id/delete",
             action: deleteAction,
-            errorElement: <div>Oops! There was an error.</div>,
+          },
+          {
+            path: "user/:id",
+            element: <User />,
+            loader: userLoader,
           },
           {
             path: "my-artworks",

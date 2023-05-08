@@ -54,6 +54,7 @@ export default function Detail() {
 
     const parsedSvgVariables = JSON.parse(artwork[0].svgVariables);
     const username = artwork[0].author.username;
+    const userId = artwork[0].author.id;
     const dateCreated = formatDate(artwork[0].dateCreated);
     const likeCount = JSON.parse(artwork[0].likes).length;
     const ypos = 0;
@@ -86,7 +87,7 @@ export default function Detail() {
         } else {
             detailInfo = (
                 <>
-                    <div className="detail__info--creator">made by {username}</div>
+                    <div className="detail__info--creator">made by <a href={`/user/${userId}`}>{username}</a></div>
                     <div className="date-created">on {dateCreated}</div>
                     <div>..........................</div>
                     <div className="likes">
@@ -111,7 +112,7 @@ export default function Detail() {
     } else {
         detailInfo = (
             <>
-                <div className="detail__info--creator">made by {username}</div>
+                <div className="detail__info--creator">made by <a href={`/user/${userId}`}>{username}</a></div>
                 <div className="date-created">on {dateCreated}</div>
                 <div>..........................</div>
                 <div className="likes">
