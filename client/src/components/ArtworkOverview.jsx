@@ -1,4 +1,4 @@
-export default function Explore({ artworks }) {
+export default function ArtworkOverview({ artworks }) {
     return (
         <div className="artwork-overview">
             {artworks.map((artwork) => {
